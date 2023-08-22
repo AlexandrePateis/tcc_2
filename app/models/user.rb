@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :guests
   has_many :hotels
   has_many :financial_accounts
+  validates :name, presence: true
 
 
 

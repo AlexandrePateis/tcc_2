@@ -1,1 +1,30 @@
 @import "bootstrap";
+body{
+  background-color: rgb(255, 255, 255);
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 0;
+}
+a {
+  color: rgb(241, 230, 230);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(240, 240, 240);
+  text-decoration: none;
+}
+.color_top_nav{
+    background-color: rgb(38, 112, 108);
+}
+.color_top_nav_log{
+  background-color: rgb(116, 190, 187);
+}
+.row-my-login{
+    width: 40%;
+    margin: 0 auto;
+  }
