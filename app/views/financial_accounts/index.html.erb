@@ -1,14 +1,58 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Financial accounts</h1>
+<h1 class="text-center text-muted mt-2">Contas Bancárias</h1>
 
-<div id="financial_accounts">
+<div id="financial_accounts" class="table-responsive container">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Banco</th>
+        <th scope="col">Nome da Conta</th>
+        <th scope="col">Numero da Conta</th>
+        <th scope="col">Agencia</th>
+        <th scope="col">Criado</th>
+        <th scope="col">Atualizado</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
   <% @financial_accounts.each do |financial_account| %>
-    <%= render financial_account %>
-    <p>
-      <%= link_to "Show this financial account", financial_account %>
-    </p>
+      <tr>
+          <th scope="row"><%= financial_account.id %></th>
+          <td><%= financial_account.bank %></td>
+          <td><%= financial_account.name_account %></td>
+          <td><%= financial_account.number_account %></td>
+          <td><%= financial_account.agency %></td>
+          <td><%= financial_account.created_at.strftime('%d/%m/%Y') %></td>
+          <td><%= financial_account.updated_at.strftime('%d/%m/%Y') %></td>
+          <td class="d-flex gap-1">
+            <%= link_to "Mostrar", financial_account, class: "btn btn-sm btn-primary" %>
+            <%= link_to "Editar", edit_financial_account_path(financial_account), class: "btn btn-sm btn-secondary" %>
+            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Excluir</button>          
+          </td>
+      </tr>
+       <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Deseja realmente excluir essa conta bancária ?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Essa ação não poderá ser desfeita
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <%= button_to "Excluir", financial_account, method: :delete, class: "btn btn-sm btn-danger"%>
+              </div>
+            </div>
+          </div>
+        </div>
+    </tbody>
+  </table>
+  <%= link_to "Nova Conta", new_financial_account_path, class: "btn btn-sm btn-primary float-end" %>
   <% end %>
 </div>
 
-<%= link_to "New financial account", new_financial_account_path %>

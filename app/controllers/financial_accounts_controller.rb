@@ -21,7 +21,7 @@ class FinancialAccountsController < ApplicationController
 
   # POST /financial_accounts or /financial_accounts.json
   def create
-    @financial_account = FinancialAccount.new(financial_account_params)
+    @financial_account = current_user.financial_accounts.build(financial_account_params)
 
     respond_to do |format|
       if @financial_account.save
@@ -65,6 +65,6 @@ class FinancialAccountsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def financial_account_params
-      params.fetch(:financial_account, {})
+      params.require(:financial_account).permit(:bank, :name_account, :number_account, :agency, :description, :user_id)
     end
 end

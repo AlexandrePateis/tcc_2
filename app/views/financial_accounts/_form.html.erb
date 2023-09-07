@@ -1,4 +1,4 @@
-<%= form_with(model: financial_account) do |form| %>
+<%= form_with(model: financial_account) do |f| %>
   <% if financial_account.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(financial_account.errors.count, "error") %> prohibited this financial_account from being saved:</h2>
@@ -10,8 +10,37 @@
       </ul>
     </div>
   <% end %>
+  <div class="container">
 
-  <div>
-    <%= form.submit %>
+    <div>
+      <%= f.label "Banco", style: "display: block", class: "fw-bold text-muted" %>
+      <%= f.text_field :bank, class: "form-control mb-3" %>
+    </div>
+
+    <div>
+      <%= f.label "Nome da Conta", style: "display: block", class: "fw-bold text-muted" %>
+      <%= f.text_field :name_account, class: "form-control mb-3" %>
+    </div>
+
+    <div>
+      <%= f.label "Número da Conta", style: "display: block", class: "fw-bold text-muted" %>
+      <%= f.number_field :number_account, class: "form-control mb-3" %>
+    </div>
+
+    <div>
+      <%= f.label "Agência", style: "display: block", class: "fw-bold text-muted" %>
+      <%= f.number_field :agency, class: "form-control mb-3" %>
+    </div>
+
+     <div class="form-group">
+      <%= f.label :description, "Observações", class: "fw-bold text-muted" %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+
+    <div class="d-flex gap-2 mt-3">
+        <%= f.submit @financial_account.new_record? ? "Criar Conta" : "Atualizar Conta", class: "btn btn-sm btn-primary" %>
+        <%= link_to "Voltar", financial_accounts_path, class: "btn btn-sm btn-secondary" %>
+    </div>
   </div>
+
 <% end %>
