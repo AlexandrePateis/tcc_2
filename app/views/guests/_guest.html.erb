@@ -1,17 +1,16 @@
-<div id="<%= dom_id guest %>">
-  <p>
-    <strong>Name:</strong>
+<div id="<%= dom_id guest %>" class="container">
+  <p class="text-muted mt-2 fw-bold fs-1">
     <%= guest.name %>
   </p>
 
   <p>
-    <strong>Birthday:</strong>
+    <strong class="text-muted mt-2 fw-bold fs-5">Data de nascimento:</strong>
     <%= guest.birthday %>
   </p>
 
   <p>
-    <strong>Gender:</strong>
-    <%= guest.gender %>
+    <strong class="text-muted mt-2 fw-bold fs-5" >Genêro:</strong>
+    <%= guest.gender ? "Masculino" : "Feminino" %>
   </p>
 
 </div>

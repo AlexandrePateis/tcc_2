@@ -21,7 +21,7 @@ class GuestsController < ApplicationController
 
   # POST /guests or /guests.json
   def create
-    @guest = Guest.new(guest_params)
+    @guest = current_user.guests.build(guest_params)
 
     respond_to do |format|
       if @guest.save
@@ -65,6 +65,6 @@ class GuestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guest_params
-      params.require(:guest).permit(:name, :birthday, :gender)
+      params.require(:guest).permit(:name, :birthday, :gender, :user_id)
     end
 end

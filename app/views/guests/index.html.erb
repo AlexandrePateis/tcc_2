@@ -1,14 +1,57 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Guests</h1>
+<h1 class="text-center text-muted mt-2">Hóspedes</h1>
 
-<div id="guests">
-  <% @guests.each do |guest| %>
-    <%= render guest %>
-    <p>
-      <%= link_to "Show this guest", guest %>
-    </p>
-  <% end %>
+<div id="guests" class="table-responsive container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Data de nascimento</th>
+        <th scope="col">Gênero</th>
+        <th scope="col">Criado</th>
+        <th scope="col">Atualizado</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @guests.each do |guest| %>
+        <tr>
+          <th scope="row"><%= guest.id %></th>
+          <td><%= guest.name %></td>
+          <td><%= guest.birthday.strftime('%d/%m/%Y') %></td>
+          <td><%= guest.gender ? "Masculino" : "Feminino" %></td>
+          <td><%= guest.created_at.strftime('%d/%m/%Y') %></td>
+          <td><%= guest.updated_at.strftime('%d/%m/%Y') %></td>
+          <td class="d-flex gap-1">
+            <%= link_to "Mostrar", guest, class: "btn btn-sm btn-primary" %>
+            <%= link_to "Editar", edit_guest_path(guest), class: "btn btn-sm btn-secondary" %>
+            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Excluir</button>          
+          </td>
+        </tr>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Deseja realmente excluir esse hospede ?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Essa ação não poderá ser desfeita
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <%= button_to "Excluir", guest, method: :delete, class: "btn btn-sm btn-danger"%>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </tbody>
+  </table>
+<%= link_to "Novo Hóspede", new_guest_path, class: "btn btn-sm btn-primary float-end" %>
 </div>
 
-<%= link_to "New guest", new_guest_path %>

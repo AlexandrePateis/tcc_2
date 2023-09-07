@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-<div class="dropdown d-print-none">
+<div class="dropdown d-print-none me-5">
   <button class="btn btn-secondary dropdown-toggle me-5 text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     <%= current_user.name %>
   </button>
@@ -15,5 +15,5 @@
 </div>
 <% else %>
     <%= link_to "Entrar", new_user_session_path, class:"me-4 text-white" %>
-    <%= link_to "Criar conta", new_user_registration_path, method: :delete, class:"text-white btn btn-sm btn-secondary" %>
+    <%= link_to "Criar conta", new_user_registration_path, method: :delete, class:"me-5 text-white btn btn-sm btn-secondary" %>
 <%end%>

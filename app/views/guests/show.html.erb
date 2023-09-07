@@ -3,8 +3,7 @@
 <%= render @guest %>
 
 <div>
-  <%= link_to "Edit this guest", edit_guest_path(@guest) %> |
-  <%= link_to "Back to guests", guests_path %>
-
-  <%= button_to "Destroy this guest", @guest, method: :delete %>
+  <%= link_to "Editar", edit_guest_path(@guest), class: "btn btn-sm btn-primary"  %> 
+  <%= link_to "Voltar", guests_path, class: "btn btn-sm btn-secondary" %>
+  <%= button_to "Apagar", @guest, method: :delete, class: "btn btn-sm btn-danger" %>
 </div>
