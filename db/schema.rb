@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_20_133030) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_07_183858) do
   create_table "financial_accounts", force: :cascade do |t|
     t.string "bank", null: false
     t.string "name_account"
@@ -38,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_20_133030) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
+    t.text "observation"
     t.index ["user_id"], name: "index_guests_on_user_id"
   end
 
