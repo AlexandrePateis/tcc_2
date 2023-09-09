@@ -16,6 +16,9 @@
         <li class="nav-item">
           <a class="nav-link text-white" href="#">Lançamentos</a>
         </li>
+        <li class="nav-item">
+            <li><%= link_to "Hotel", hotels_path, class: "nav-link text-white" %></li>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Gestão
@@ -25,6 +28,7 @@
             <li><a class="dropdown-item" href="#">Relatório de DFC</a></li>
             <li><a class="dropdown-item" href="#">Log de atividades</a></li>
             <li><%= link_to "Contas Bancárias", financial_accounts_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Formas de Pagamento", form_of_payments_path, class: "dropdown-item" %></li>
           </ul>
         </li>
    <% end %>

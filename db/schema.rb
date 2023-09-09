@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_07_183858) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_09_140605) do
   create_table "financial_accounts", force: :cascade do |t|
     t.string "bank", null: false
     t.string "name_account"
@@ -20,6 +20,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_183858) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
+    t.integer "hotel_id", null: false
+    t.index ["hotel_id"], name: "index_financial_accounts_on_hotel_id"
     t.index ["user_id"], name: "index_financial_accounts_on_user_id"
   end
 
@@ -50,6 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_183858) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
+    t.string "hotel_type", null: false
     t.index ["user_id"], name: "index_hotels_on_user_id"
   end
 
@@ -70,6 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_183858) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "financial_accounts", "hotels"
   add_foreign_key "financial_accounts", "users"
   add_foreign_key "form_of_payments", "financial_accounts"
   add_foreign_key "guests", "users"

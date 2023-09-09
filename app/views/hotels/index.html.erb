@@ -1,14 +1,31 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Hotels</h1>
+<h1 class="text-center text-muted mt-2">Hotels</h1>
 
-<div id="hotels">
-  <% @hotels.each do |hotel| %>
-    <%= render hotel %>
-    <p>
-      <%= link_to "Show this hotel", hotel %>
-    </p>
+<div id="hotels" class="table-responsive container">
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Responsável</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @hotels.each do |hotel| %>
+        <tr>
+          <td><%= hotel.name %></td>
+          <td><%= hotel.responsible %></td>
+          <td><%= hotel.hotel_type %></td>
+          <td class="d-flex gap-1">
+            <%= link_to "Mostrar", hotel, class: "btn btn-sm btn-primary" %>
+            <%= link_to "Editar", edit_hotel_path(hotel), class: "btn btn-sm btn-secondary" %>
+          </td>
+        </tr>
   <% end %>
+    </tbody>
+  </table>
+<%= link_to "Novo Hotel", new_hotel_path, class: "btn btn-sm btn-primary float-end" %>
 </div>
 
-<%= link_to "New hotel", new_hotel_path %>

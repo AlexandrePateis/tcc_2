@@ -13,10 +13,12 @@ class FormOfPaymentsController < ApplicationController
   # GET /form_of_payments/new
   def new
     @form_of_payment = FormOfPayment.new
+    @financial_accounts = FinancialAccount.all
   end
 
   # GET /form_of_payments/1/edit
   def edit
+    @financial_accounts = FinancialAccount.all
   end
 
   # POST /form_of_payments or /form_of_payments.json
@@ -65,6 +67,6 @@ class FormOfPaymentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def form_of_payment_params
-      params.require(:form_of_payment).permit(:name)
+      params.require(:form_of_payment).permit(:name, :financial_account_id)
     end
 end

@@ -2,9 +2,8 @@
 
 <%= render @financial_account %>
 
-<div>
-  <%= link_to "Edit this financial account", edit_financial_account_path(@financial_account) %> |
-  <%= link_to "Back to financial accounts", financial_accounts_path %>
-
-  <%= button_to "Destroy this financial account", @financial_account, method: :delete %>
+<div class="d-flex gap-2 container">
+  <%= link_to "Editar", edit_financial_account_path(@financial_account), class: "btn btn-sm btn-primary" %> 
+  <%= link_to "Voltar", financial_accounts_path, class: "btn btn-sm btn-secondary" %>
+  <%= button_to "Apagar", @financial_account, method: :delete, class: "btn btn-sm btn-danger" %>
 </div>

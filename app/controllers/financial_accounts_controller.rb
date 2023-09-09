@@ -13,10 +13,12 @@ class FinancialAccountsController < ApplicationController
   # GET /financial_accounts/new
   def new
     @financial_account = FinancialAccount.new
+    @hotels = Hotel.all
   end
 
   # GET /financial_accounts/1/edit
   def edit
+    @hotels = Hotel.all
   end
 
   # POST /financial_accounts or /financial_accounts.json
@@ -65,6 +67,6 @@ class FinancialAccountsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def financial_account_params
-      params.require(:financial_account).permit(:bank, :name_account, :number_account, :agency, :description, :user_id)
+      params.require(:financial_account).permit(:bank, :name_account, :number_account, :agency, :description, :user_id, :hotel_id)
     end
 end

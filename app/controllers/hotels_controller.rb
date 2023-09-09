@@ -21,7 +21,8 @@ class HotelsController < ApplicationController
 
   # POST /hotels or /hotels.json
   def create
-    @hotel = Hotel.new(hotel_params)
+    @hotel = current_user.hotels.build(hotel_params)
+
 
     respond_to do |format|
       if @hotel.save
@@ -65,6 +66,6 @@ class HotelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def hotel_params
-      params.require(:hotel).permit(:name, :cnpj, :phone, :responsible)
+      params.require(:hotel).permit(:name, :cnpj, :phone, :responsible, :hotel_type, :user_id)
     end
 end

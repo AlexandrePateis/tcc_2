@@ -1,22 +1,26 @@
-<div id="<%= dom_id hotel %>">
-  <p>
-    <strong>Name:</strong>
+<div id="<%= dom_id hotel %>"class="container">
+  <p class="text-muted mt-2 fw-bold fs-1">
     <%= hotel.name %>
   </p>
 
   <p>
-    <strong>Cnpj:</strong>
+    <strong class="text-muted mt-2 fw-bold fs-5">Cnpj:</strong>
     <%= hotel.cnpj %>
   </p>
 
   <p>
-    <strong>Phone:</strong>
+    <strong class="text-muted mt-2 fw-bold fs-5">Phone:</strong>
     <%= hotel.phone %>
   </p>
 
   <p>
-    <strong>Responsible:</strong>
+    <strong class="text-muted mt-2 fw-bold fs-5">Responsible:</strong>
     <%= hotel.responsible %>
+  </p>
+
+  <p>
+    <strong class="text-muted mt-2 fw-bold fs-5">Tipo:</strong>
+    <%= hotel.hotel_type %>
   </p>
 
 </div>
