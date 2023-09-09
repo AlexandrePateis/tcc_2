@@ -1,4 +1,6 @@
 <div id="<%= dom_id financial_account %>"class="container">
+  <% if financial_account.user_id == current_user.id %>
+
   <p class="text-muted mt-2 fw-bold fs-1">
     <%= financial_account.bank %>
   </p>
@@ -28,4 +30,7 @@
     <strong class="text-muted mt-2 fw-bold fs-5" >Observação</strong>
     <textarea class="form-control mt-1" readonly><%= financial_account.description %></textarea>
   </p>
+  
+  <% end %>
+
 </div>

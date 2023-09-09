@@ -18,6 +18,7 @@
     <tbody>
       <% @guests.each do |guest| %>
         <tr>
+        <% if guest.user_id == current_user.id %>
           <th scope="row"><%= guest.id %></th>
           <td><%= guest.name %></td>
           <td><%= guest.birthday.strftime('%d/%m/%Y') %></td>
@@ -50,6 +51,9 @@
           </div>
         </div>
       <% end %>
+
+      <% end %>
+
     </tbody>
   </table>
 <%= link_to "Novo Hóspede", new_guest_path, class: "btn btn-sm btn-primary float-end" %>

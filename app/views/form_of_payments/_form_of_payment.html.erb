@@ -1,7 +1,13 @@
-<div id="<%= dom_id form_of_payment %>">
+<div id="<%= dom_id form_of_payment %>"class="container">
+<% if form_of_payment.financial_account.user_id == current_user.id %>
   <p>
-    <strong>Name:</strong>
+    <strong class="text-muted mt-2 fw-bold fs-5" >Name:</strong>
     <%= form_of_payment.name %>
   </p>
 
+  <p>
+    <strong class="text-muted mt-2 fw-bold fs-5" >Conta pertencente:</strong>
+    <%= form_of_payment.financial_account.bank  %>
+  </p>
+<% end %>
 </div>

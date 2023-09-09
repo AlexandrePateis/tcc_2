@@ -1,4 +1,6 @@
 <div id="<%= dom_id guest %>" class="container">
+<% if guest.user_id == current_user.id %>
+
   <p class="text-muted mt-2 fw-bold fs-1">
     <%= guest.name %>
   </p>
@@ -17,6 +19,6 @@
     <strong class="text-muted mt-2 fw-bold fs-5" >Observação</strong>
     <textarea class="form-control mt-1" readonly><%= guest.observation %></textarea>
   </p>
-
+<% end %>
 
 </div>

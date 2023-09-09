@@ -13,12 +13,12 @@ class FinancialAccountsController < ApplicationController
   # GET /financial_accounts/new
   def new
     @financial_account = FinancialAccount.new
-    @hotels = Hotel.all
+    @hotels = current_user.hotels
   end
 
   # GET /financial_accounts/1/edit
   def edit
-    @hotels = Hotel.all
+    @hotels = current_user.hotels
   end
 
   # POST /financial_accounts or /financial_accounts.json

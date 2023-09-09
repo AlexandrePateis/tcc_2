@@ -1,5 +1,5 @@
+<% if @financial_account.user_id == current_user.id %>
 <h1 class="text-center text-muted mt-2">Editar Conta Bancária</h1>
-
-<%= render "form", financial_account: @financial_account %>
-
+    <%= render "form", financial_account: @financial_account %>
+<% end %>
 <br>

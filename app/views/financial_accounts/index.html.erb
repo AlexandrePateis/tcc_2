@@ -20,6 +20,7 @@
     <tbody>
   <% @financial_accounts.each do |financial_account| %>
       <tr>
+        <% if financial_account.user_id == current_user.id %>
           <th scope="row"><%= financial_account.id %></th>
           <td><%= financial_account.bank %></td>
           <td><%= financial_account.name_account %></td>
@@ -54,6 +55,7 @@
         </div>
     </tbody>
   </table>
+    <% end %>
   <% end %>
   <%= link_to "Nova Conta", new_financial_account_path, class: "btn btn-sm btn-primary float-end" %>
 </div>

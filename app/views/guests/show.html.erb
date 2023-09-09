@@ -1,9 +1,9 @@
+<% if @guest.user_id == current_user.id %>
 <p style="color: green"><%= notice %></p>
-
-<%= render @guest %>
-
-<div class="d-flex gap-2 container">
-  <%= link_to "Voltar", guests_path, class: "btn btn-sm btn-secondary" %>
-  <%= link_to "Editar", edit_guest_path(@guest), class: "btn btn-sm btn-primary"  %> 
-  <%= button_to "Apagar", @guest, method: :delete, class: "btn btn-sm btn-danger" %>
-</div>
+  <%= render @guest %>
+  <div class="d-flex gap-2 container">
+    <%= link_to "Voltar", guests_path, class: "btn btn-sm btn-secondary" %>
+    <%= link_to "Editar", edit_guest_path(@guest), class: "btn btn-sm btn-primary"  %> 
+    <%= button_to "Apagar", @guest, method: :delete, class: "btn btn-sm btn-danger" %>
+  </div>
+<% end %>

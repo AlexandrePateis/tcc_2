@@ -15,6 +15,7 @@
       <tbody>
       <% @hotels.each do |hotel| %>
         <tr>
+        <% if hotel.user_id == current_user.id %>
           <td><%= hotel.name %></td>
           <td><%= hotel.responsible %></td>
           <td><%= hotel.hotel_type %></td>
@@ -23,6 +24,7 @@
             <%= link_to "Editar", edit_hotel_path(hotel), class: "btn btn-sm btn-secondary" %>
           </td>
         </tr>
+      <% end %>
   <% end %>
     </tbody>
   </table>

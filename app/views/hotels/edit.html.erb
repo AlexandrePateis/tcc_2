@@ -1,5 +1,4 @@
-<h1 class="text-center text-muted mt-2">Editar Hotel</h1>
-
-<%= render "form", hotel: @hotel %>
-
-<br>
+<% if @hotel.user_id == current_user.id %>
+    <h1 class="text-center text-muted mt-2">Editar Hotel</h1>
+    <%= render "form", hotel: @hotel %>
+<% end %>

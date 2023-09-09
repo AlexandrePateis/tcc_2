@@ -1,14 +1,51 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Form of payments</h1>
+<h1 class="text-center text-muted mt-2">Formas de pagamento</h1>
 
-<div id="form_of_payments">
+<div id="form_of_payments" class="table-responsive container">
+  <table class="table">
+  <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Nome da Conta</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
   <% @form_of_payments.each do |form_of_payment| %>
-    <%= render form_of_payment %>
-    <p>
-      <%= link_to "Show this form of payment", form_of_payment %>
-    </p>
+      <tr>
+        <% if form_of_payment.financial_account.user_id == current_user.id %>
+        <th scope="row"><%= form_of_payment.id %></th>
+        <td><%= form_of_payment.name %></td>
+        <td><%= form_of_payment.financial_account.bank %></td>
+        <td>
+            <%= link_to "Editar", edit_form_of_payment_path(form_of_payment), class: "btn btn-sm btn-secondary" %>
+            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Excluir</button> 
+        </td>
+      </tr>
+ <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Deseja realmente excluir essa forma de pagamento ?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Essa ação não poderá ser desfeita
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <%= button_to "Excluir", form_of_payment, method: :delete, class: "btn btn-sm btn-danger"%>
+              </div>
+            </div>
+          </div>
+        </div>
+    </tbody>
+  </table>
   <% end %>
+  <% end %>
+<%= link_to "Nova forma de pagamento", new_form_of_payment_path, class: "btn btn-sm btn-primary float-end" %>
 </div>
 
-<%= link_to "New form of payment", new_form_of_payment_path %>

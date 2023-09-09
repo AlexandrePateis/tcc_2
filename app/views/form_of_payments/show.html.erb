@@ -1,10 +1,8 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @form_of_payment %>
-
-<div>
-  <%= link_to "Edit this form of payment", edit_form_of_payment_path(@form_of_payment) %> |
-  <%= link_to "Back to form of payments", form_of_payments_path %>
-
-  <%= button_to "Destroy this form of payment", @form_of_payment, method: :delete %>
-</div>
+<% if @form_of_payment.financial_account.user_id  == current_user.id %>
+  <%= render @form_of_payment %>
+  <div class="d-flex gap-2 container">
+    <%= link_to "Voltar", form_of_payments_path, class: "btn btn-sm btn-secondary" %>
+    <%= link_to "Editar", edit_form_of_payment_path(@form_of_payment), class: "btn btn-sm btn-primary" %> 
+  </div>
+<% end %>

@@ -1,5 +1,4 @@
-<h1 class="text-center text-muted mt-2">Editar forma de pagamento</h1>
-
-<%= render "form", form_of_payment: @form_of_payment %>
-
-<br>
+<% if @form_of_payment.financial_account.user_id  == current_user.id %>
+    <h1 class="text-center text-muted mt-2">Editar forma de pagamento</h1>
+    <%= render "form", form_of_payment: @form_of_payment %>
+<% end %>

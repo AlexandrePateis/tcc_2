@@ -1,9 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @financial_account %>
-
-<div class="d-flex gap-2 container">
-  <%= link_to "Editar", edit_financial_account_path(@financial_account), class: "btn btn-sm btn-primary" %> 
-  <%= link_to "Voltar", financial_accounts_path, class: "btn btn-sm btn-secondary" %>
-  <%= button_to "Apagar", @financial_account, method: :delete, class: "btn btn-sm btn-danger" %>
-</div>
+<% if @financial_account.user_id == current_user.id %>
+  <div class="d-flex gap-2 container">
+    <%= link_to "Editar", edit_financial_account_path(@financial_account), class: "btn btn-sm btn-primary" %> 
+    <%= link_to "Voltar", financial_accounts_path, class: "btn btn-sm btn-secondary" %>
+    <%= button_to "Apagar", @financial_account, method: :delete, class: "btn btn-sm btn-danger" %>
+  </div>
+<% end %>

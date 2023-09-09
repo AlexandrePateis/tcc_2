@@ -1,6 +1,5 @@
-<h1  class="text-center text-muted mt-2">Editar hóspede</h1>
-
-<%= render "form", guest: @guest %>
-
-<br>
+<% if @guest.user_id == current_user.id %>
+    <h1  class="text-center text-muted mt-2">Editar hóspede</h1>
+    <%= render "form", guest: @guest %>
+<% end %>
 
