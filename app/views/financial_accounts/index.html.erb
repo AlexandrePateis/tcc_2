@@ -6,7 +6,6 @@
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">Id</th>
         <th scope="col">Banco</th>
         <th scope="col">Nome da Conta</th>
         <th scope="col">Numero da Conta</th>
@@ -21,7 +20,6 @@
   <% @financial_accounts.each do |financial_account| %>
       <tr>
         <% if financial_account.user_id == current_user.id %>
-          <th scope="row"><%= financial_account.id %></th>
           <td><%= financial_account.bank %></td>
           <td><%= financial_account.name_account %></td>
           <td><%= financial_account.number_account %></td>
@@ -54,9 +52,9 @@
           </div>
         </div>
     </tbody>
-  </table>
     <% end %>
   <% end %>
+  </table>
   <%= link_to "Nova Conta", new_financial_account_path, class: "btn btn-sm btn-primary float-end" %>
 </div>
 

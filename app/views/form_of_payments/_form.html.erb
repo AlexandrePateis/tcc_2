@@ -18,7 +18,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :financial_account_id, "Financial Account", class: "fw-bold text-muted" %>
+      <%= f.label :financial_account_id, "Conta Bancaria", class: "fw-bold text-muted" %>
       <%= f.select :financial_account_id, options_from_collection_for_select(@financial_accounts, :id, :bank, f.object.financial_account_id), { include_blank: "Selecione uma conta financeira" }, required: true, class: "form-control mb-3" %>
     </div>
 

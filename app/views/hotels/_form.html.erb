@@ -11,14 +11,18 @@
     </div>
   <% end %>
   <div class="container">
-    <div>
-      <%= f.label :name, style: "display: block", class: "fw-bold text-muted" %>
-      <%= f.text_field :name, class: "form-control mb-3" %>
-    </div>
+    <div class="row gy-3">
 
-    <div>
-      <%= f.label :cnpj, style: "display: block", class: "fw-bold text-muted" %>
-      <%= f.text_field :cnpj, class: "form-control mb-3" %>
+      <div class="col-md-6">
+        <%= f.label :name, style: "display: block", class: "fw-bold text-muted" %>
+        <%= f.text_field :name, class: "form-control mb-3" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= f.label :cnpj, style: "display: block", class: "fw-bold text-muted" %>
+        <%= f.text_field :cnpj, class: "form-control mb-3" %>
+      </div>
+
     </div>
 
     <div>

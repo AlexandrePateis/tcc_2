@@ -12,24 +12,32 @@
   <% end %>
   <div class="container">
 
-    <div>
-      <%= f.label "Banco", style: "display: block", class: "fw-bold text-muted" %>
-      <%= f.text_field :bank, class: "form-control mb-3" %>
+    <div class="row gy-3">
+
+      <div class="col-md-6">
+        <%= f.label "Banco", style: "display: block", class: "fw-bold text-muted" %>
+        <%= f.text_field :bank, class: "form-control mb-3" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= f.label "Nome da Conta", style: "display: block", class: "fw-bold text-muted" %>
+        <%= f.text_field :name_account, class: "form-control mb-3" %>
+      </div>
+
     </div>
 
-    <div>
-      <%= f.label "Nome da Conta", style: "display: block", class: "fw-bold text-muted" %>
-      <%= f.text_field :name_account, class: "form-control mb-3" %>
-    </div>
+    <div class="row gy-3">
 
-    <div>
-      <%= f.label "Número da Conta", style: "display: block", class: "fw-bold text-muted" %>
-      <%= f.number_field :number_account, class: "form-control mb-3" %>
-    </div>
+      <div class="col-md-6">
+        <%= f.label "Número da Conta", style: "display: block", class: "fw-bold text-muted" %>
+        <%= f.number_field :number_account, class: "form-control mb-3" %>
+      </div>
 
-    <div>
-      <%= f.label "Agência", style: "display: block", class: "fw-bold text-muted" %>
-      <%= f.number_field :agency, class: "form-control mb-3" %>
+      <div class="col-md-6">
+        <%= f.label "Agência", style: "display: block", class: "fw-bold text-muted" %>
+        <%= f.number_field :agency, class: "form-control mb-3" %>
+      </div>
+      
     </div>
 
     <div class="form-group">

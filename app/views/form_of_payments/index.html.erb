@@ -6,7 +6,6 @@
   <table class="table">
   <thead>
       <tr>
-        <th scope="col">Id</th>
         <th scope="col">Nome</th>
         <th scope="col">Nome da Conta</th>
         <th scope="col">Ações</th>
@@ -16,7 +15,6 @@
   <% @form_of_payments.each do |form_of_payment| %>
       <tr>
         <% if form_of_payment.financial_account.user_id == current_user.id %>
-        <th scope="row"><%= form_of_payment.id %></th>
         <td><%= form_of_payment.name %></td>
         <td><%= form_of_payment.financial_account.bank %></td>
         <td>
@@ -43,9 +41,9 @@
           </div>
         </div>
     </tbody>
+  <% end %>
+  <% end %>
   </table>
-  <% end %>
-  <% end %>
 <%= link_to "Nova forma de pagamento", new_form_of_payment_path, class: "btn btn-sm btn-primary float-end" %>
 </div>
 
