@@ -17,7 +17,6 @@
     <tbody>
       <% @guests.each do |guest| %>
         <tr>
-        <% if guest.user_id == current_user.id %>
           <td><%= guest.name %></td>
           <td><%= guest.birthday.strftime('%d/%m/%Y') %></td>
           <td><%= guest.gender ? "Masculino" : "Feminino" %></td>
@@ -48,7 +47,6 @@
             </div>
           </div>
         </div>
-      <% end %>
 
       <% end %>
 

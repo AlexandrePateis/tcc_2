@@ -3,7 +3,7 @@ class HotelsController < ApplicationController
 
   # GET /hotels or /hotels.json
   def index
-    @hotels = Hotel.all
+    @hotels = current_user.hotels
   end
 
   # GET /hotels/1 or /hotels/1.json

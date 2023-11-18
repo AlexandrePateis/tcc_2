@@ -3,7 +3,7 @@ class FinancialAccountsController < ApplicationController
 
   # GET /financial_accounts or /financial_accounts.json
   def index
-    @financial_accounts = FinancialAccount.all
+    @financial_accounts = current_user.financial_accounts
   end
 
   # GET /financial_accounts/1 or /financial_accounts/1.json

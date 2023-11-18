@@ -17,42 +17,41 @@
       </tr>
     </thead>
     <tbody>
-  <% @financial_accounts.each do |financial_account| %>
+    <% @financial_accounts.each do |financial_account| %>
       <tr>
-        <% if financial_account.user_id == current_user.id %>
-          <td><%= financial_account.bank %></td>
-          <td><%= financial_account.name_account %></td>
-          <td><%= financial_account.number_account %></td>
-          <td><%= financial_account.agency %></td>
-          <td><%= financial_account.hotel.name %></td>
-          <td><%= financial_account.created_at.strftime('%d/%m/%Y') %></td>
-          <td><%= financial_account.updated_at.strftime('%d/%m/%Y') %></td>
-          <td class="d-flex gap-1">
-            <%= link_to "Mostrar", financial_account, class: "btn btn-sm btn-primary" %>
-            <%= link_to "Editar", edit_financial_account_path(financial_account), class: "btn btn-sm btn-secondary" %>
-            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Excluir</button>          
-          </td>
+        <td><%= financial_account.bank %></td>
+        <td><%= financial_account.name_account %></td>
+        <td><%= financial_account.number_account %></td>
+        <td><%= financial_account.agency %></td>
+        <td><%= financial_account.hotel.name %></td>
+        <td><%= financial_account.created_at.strftime('%d/%m/%Y') %></td>
+        <td><%= financial_account.updated_at.strftime('%d/%m/%Y') %></td>
+        <td class="d-flex gap-1">
+          <%= link_to "Mostrar", financial_account, class: "btn btn-sm btn-primary" %>
+          <%= link_to "Editar", edit_financial_account_path(financial_account), class: "btn btn-sm btn-secondary" %>
+          <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<%= financial_account.id %>">Excluir</button>          
+        </td>
       </tr>
-       <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Deseja realmente excluir essa conta bancária ?</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Essa ação não poderá ser desfeita
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <%= button_to "Excluir", financial_account, method: :delete, class: "btn btn-sm btn-danger"%>
-              </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal<%= financial_account.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Deseja realmente excluir essa conta bancária?</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Essa ação não poderá ser desfeita
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <%= button_to "Excluir", financial_account, method: :delete, class: "btn btn-sm btn-danger" %>
             </div>
           </div>
         </div>
+      </div>
     </tbody>
-    <% end %>
   <% end %>
   </table>
   <%= link_to "Nova Conta", new_financial_account_path, class: "btn btn-sm btn-primary float-end" %>
